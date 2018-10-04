@@ -702,11 +702,12 @@ input::placeholder {
 */
 
 .c-option-list {
+    margin-bottom: 24px;;
 
 }
 
 .c-option-list__item {
-
+    margin-bottom: 12px;
 }
 
 /*
@@ -719,18 +720,203 @@ input::placeholder {
 
 /* checked state */
 
-.c-custom-input-option-hidden:checked + .c-custom-input-option-label {
+.c-custom-input-option__symbol{
+    opacity: 0;
+    display: block;
+    -webkit-transition: all 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+    -moz-transition: all 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+    -o-transition: all 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+    transition: all 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+ }
+
+.c-custom-input-option-hidden:checked + .c-custom-input-option-label .c-custom-input-option__symbol{
     /*
         Do magic stuff here, for example:
         background-color: red;
     */
+    -webkit-transition: all 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+    -moz-transition: all 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+    -o-transition: all 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+    transition: all 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+    opacity: 1;
+
+}
+
+.c-custom-input-option:hover{
+    background-color: var(--color-neutral-xxx-light );
 }
 
 .c-custom-input-option-hidden:checked + .c-custom-input-option-label .c-custom-input-option__symbol {
     /*
         Do magic stuff here, for example:
-        fill: blue;
+       
     */
+    /*fill: blue;*/
+    
+}
+
+.c-custom-input-option-label{
+    display: flex;
+}
+
+
+
+.c-custom-input-option--checkbox .c-custom-input-option__symbol {
+    width: 10px;
+    height: 10px;
+    fill: var(--color-alpha);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+  .c-custom-input-option--radio .c-custom-input-option__symbol {
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-alpha);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.c-custom-input-option{
+    display: flex;
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--color-neutral-xxx-light);
+    margin-right: 8px;
+    box-shadow: inset 0 0 2px var(--color-neutral-xxx-dark);
+    justify-content: center;
+    align-items: center;
+}
+
+.c-custom-input-option--radio{
+    border-radius: 100%;
+}
+
+.c-custom-input-option--checkbox{
+    border-radius: var(--radius);
+}
+
+/*
+    Component: Custom options
+    ---
+    Custom toggle
+*/
+
+
+.c-toggle__label{
+    display: flex;
+    align-items: center;
+    
+}
+
+.c-toggle__input{
+    display: block;
+    width: 48px;
+    height: 24px;
+    border-radius: 24px;
+    border: 1px solid var(--color-neutral-light);
+    background-color: var(--color-neutral-x-light);
+    margin-right: 10px;
+    margin-left:10px;
+}  
+
+.c-toggle__input::after{
+    display: block;
+    content: "";
+    height: 22px;
+    width: 22px;
+    border-radius: 100%;
+    background-color: #fff;
+    border: 1px solid var(--color-neutral-light);
+    transition: all var(--transition-alpha);
+}
+
+.c-toggle__checkbox-hidden:checked + .c-toggle__label  .c-toggle__input::after{
+    border: 1px solid var(--color-alpha-dark);
+    transform: translateX(25px);
+}
+
+.c-toggle__checkbox-hidden:checked + .c-toggle__label .c-toggle__input{
+    background-color: var(--color-alpha);
+    border: 1px solid var(--color-alpha-dark);
+}
+
+.c-toggle__input:focus{
+    box-shadow: 4px var(--color-alpha-light);
+    -webkit-box-shadow: 1px 1px 2px 2px var(--color-alpha-light);
+    box-shadow: 1px 1px 2px 2px var(--color-alpha-light);
+}
+
+
+
+.c-toggle__input--alternative{
+    height: 20px;
+    width: 44px;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-neutral-xxx-light);
+    border: none;
+
+}
+
+.c-toggle__input--alternative::after{
+    position: relative;
+    height: 24px;
+    width: 24px;
+    background-color: var(--color-neutral-xxxx-light);
+    border: 1px solid var(--color-alpha);
+    align-items: center;
+}
+
+.c-toggle__checkbox-hidden:checked + .c-toggle__label .c-toggle__input--alternative{
+    background-color: var(--color-alpha-xx-light);
+    border: none;
+
+}
+
+.c-toggle__checkbox-hidden:checked + .c-toggle__label  .c-toggle__input--alternative::after{
+    background-color: var(--color-alpha-light);
+}
+
+.c-toggle-list li + li{
+    border-top: 1px solid var(--color-neutral-xxx-light);
+    padding-top: 13px;
+
+}
+
+.c-toggle-list__item{
+
+}
+
+.c-toggle__label--inverted{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+/*
+    Component: Custom options
+    ---
+    Custom select
+*/
+
+.c-custom-select__input{
+    display: block;
+}
+.c-custom-select{
+    position: relative;
+}
+
+.c-custom-select__symbol{
+    height: 22px;
+    width: 22px;
+    fill: var(--color-neutral-light);
+    position: absolute;
+    left: 300px;
+    top: -35px;
+    pointer-events: none;
 }
 
 /*------------------------------------*\
